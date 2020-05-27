@@ -14,10 +14,6 @@ const isLocalhost = Boolean(
 		)
 );
 
-let Configuration = ConfigurationDev;
-
-if (isLocalhost) {
-	Configuration = ConfigurationLocal;
-}
+let Configuration = ConfigurationLocal;
 
 export default Configuration;
