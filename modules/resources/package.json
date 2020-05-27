@@ -3,27 +3,35 @@
 	"version": "1.0.0",
 	"description": "Resources",
 	"devDependencies": {
-		"liferay-npm-bundler": "^2.18.5",
+		"@babel/cli": "^7.0.0",
+		"@babel/core": "^7.0.0",
+		"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+		"@babel/preset-env": "^7.0.0",
+		"@testing-library/jest-dom": "^5.8.0",
+		"babel-loader": "^8.0.0",
+		"copy-webpack-plugin": "^4.5.4",
+		"jest-image-snapshot": "^4.0.0",
+		"jest-transform-css": "^2.0.0",
+		"jsdom-screenshot": "^3.2.0",
 		"liferay-npm-build-support": "^2.18.5",
-		"copy-webpack-plugin": "4.6.0",
-		"webpack": "4.29.6",
-		"webpack-cli": "3.3.0",
-		"webpack-dev-server": "3.2.1",
-		"babel-cli": "6.26.0",
-		"babel-preset-env": "1.7.0",
-		"babel-preset-react": "6.24.1",
-		"babel-loader": "7.1.5"
+		"liferay-npm-bundler": "^2.18.5",
+		"liferay-npm-scripts": "^32.2.0",
+		"react-test-renderer": "^16.13.1",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11",
+		"webpack-dev-server": "^3.11.0"
 	},
 	"dependencies": {
-		"react": "16.8.6",
-		"react-dom": "16.8.6"
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
 	},
 	"scripts": {
 		"build": "babel --source-maps -d build src && npm run copy-assets && liferay-npm-bundler",
 		"copy-assets": "lnbs-copy-assets",
 		"translate": "lnbs-translate",
 		"deploy": "npm run build && lnbs-deploy",
-		"start": "lnbs-start"
+		"start": "lnbs-start",
+		"test": "liferay-npm-scripts test"
 	},
 	"portlet": {
 		"com.liferay.portlet.display-category": "category.osb",
@@ -33,5 +41,14 @@
 		"javax.portlet.security-role-ref": "power-user,user",
 		"javax.portlet.resource-bundle": "content.Language"
 	},
-	"main": "index.js"
+	"main": "index.js",
+	"babel": {
+		"presets": [
+			"@babel/preset-env",
+			"@babel/preset-react"
+		],
+		"plugins": [
+			"@babel/proposal-object-rest-spread"
+		]
+	}
 }
