@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 import AppComponent from './AppComponent';
 
+import * as serviceWorker from './serviceWorker';
 
 /**
  * This is the main entry point of the portlet.
